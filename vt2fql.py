@@ -27,29 +27,29 @@ def main(hash, ip, domain, url):
     
     client = vt.Client(VT_API_KEY)
     if not any([hash, ip, domain, url]):
-        click.echo("❌ Please provide one of: --hash, --ip, --domain, or --url", err=True)
+        click.echo("Please provide one of: --hash, --ip, --domain, or --url", err=True)
 
         return
     
     if hash:
-        click.echo(f"🔍 Searching for file hash: {hash}")
+        click.echo(f"Searching for file hash: {hash}")
         report = get_file_report(hash)
         print(extract_file_fields(report))
         
     
     elif ip:
-        click.echo(f"🔍 Searching for ip: {ip}")
+        click.echo(f"Searching for ip: {ip}")
         report = get_ip_report(ip)
         extract_ip_fields(report)
         
         
     elif domain:
-        click.echo(f"🔍 Searching for domain: {domain}")
+        click.echo(f"Searching for domain: {domain}")
         report = get_domain_report(domain)
         extracted = extract_domain_fields(report)
         
     elif url:
-        click.echo(f"🔍 Searching for URL: {url}")
+        click.echo(f"Searching for URL: {url}")
         report = get_url_report(url)
         extracted = extract_url_fields(report)
 
