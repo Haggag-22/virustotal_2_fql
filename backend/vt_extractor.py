@@ -1,5 +1,3 @@
-import vt
-
 def extract_file_fields(report):
     attributes = report.get("attributes", {})
     iocs = {}

@@ -19,24 +19,6 @@ Examples:
 @click.option("--domain", help="Domain to investigate")
 @click.option("--url", help="URL to investigate")
 @click.option("--explain", is_flag=True, help="Show used fields in the FQL query")
-
-def install_dependencies():
-    import subprocess
-    import sys
-
-    required = ["click", "vt-py", "python-dotenv"]
-
-    for pkg in required:
-        print(f"Checking {pkg}...")
-        try:
-            __import__(pkg.replace("-", "_"))
-        except ImportError:
-            print(f"Installing {pkg}...")
-            subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
-
-    print("All dependencies installed.")
-
-
 def main(setup, hash, ip, domain, url, explain):
     if setup:
         install_dependencies()
@@ -72,7 +54,23 @@ def main(setup, hash, ip, domain, url, explain):
                     query.explain()
 
                 break
-    
+
+def install_dependencies():
+    import subprocess
+    import sys
+
+    required = ["click", "vt-py", "python-dotenv"]
+
+    for pkg in required:
+        print(f"Checking {pkg}...")
+        try:
+            __import__(pkg.replace("-", "_"))
+        except ImportError:
+            print(f"Installing {pkg}...")
+            subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
+
+    print("All dependencies installed.")
+
     
 
 
