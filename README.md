@@ -23,8 +23,7 @@ cd virustotal_2_fql
 # 3. Run the setup command to install dependencies
 python vt2fql.py --setup
 
-# 4. Open the .env file in the root folder
-#    and paste your VirusTotal API key:
+# 4. Open the .env file in the root folder and paste your VirusTotal API key
 #
 #    VT_API_KEY=your_virustotal_api_key_here
 #
