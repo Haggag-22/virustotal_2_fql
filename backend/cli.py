@@ -1,5 +1,7 @@
 import click
 import vt
+import subprocess
+import sys
 from backend.config import *
 from backend.vt_extractor import *
 from backend.generator import *
@@ -11,13 +13,35 @@ Examples:
   python vt2fql.py --hash <sha256>
   python vt2fql.py --ip <ip_address>
 """)
+@click.option("--setup", is_flag=True, help="Install required dependencies and exit.")
 @click.option("--hash", help="File Hash (SHA256, SHA1, or MD5)")
 @click.option("--ip", help="IP Address to investigate")
 @click.option("--domain", help="Domain to investigate")
 @click.option("--url", help="URL to investigate")
 @click.option("--explain", is_flag=True, help="Show used fields in the FQL query")
 
-def main(hash, ip, domain, url, explain):
+def install_dependencies():
+    import subprocess
+    import sys
+
+    required = ["click", "vt-py", "python-dotenv"]
+
+    for pkg in required:
+        print(f"Checking {pkg}...")
+        try:
+            __import__(pkg.replace("-", "_"))
+        except ImportError:
+            print(f"Installing {pkg}...")
+            subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
+
+    print("All dependencies installed.")
+
+
+def main(setup, hash, ip, domain, url, explain):
+    if setup:
+        install_dependencies()
+        return
+    
     click.echo(click.style("\n🔍 Falcon Query Generator from VirusTotal\n", fg="cyan", bold=True))
 
     if not any([hash, ip, domain, url]):
