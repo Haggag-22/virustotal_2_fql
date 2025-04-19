@@ -6,7 +6,7 @@
 
 ## Supported Platforms
 
-This tool is currently built and tested to run on **Linux/macOS terminals** (bash or sh environments).  
+This tool is currently built and tested to run on **Linux/macOS terminals**.  
 Support for Windows PowerShell will be added in a future update.
 
 ---
