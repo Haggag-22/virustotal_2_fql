@@ -3,9 +3,9 @@ from setuptools import setup, find_packages
 setup(
     name="vt2fql",
     version="1.0.0",
-    description="Generate CrowdStrike Falcon queries from VirusTotal IOCs",
+    description="Generate Falcon FQL queries from VirusTotal IOCs",
     author="Omar Haggag",
-    packages=find_packages(),
+    packages=find_packages(include=["backend", "backend.*"]),
     install_requires=[
         "click",
         "vt-py",
@@ -13,7 +13,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "vt2fql=vt2fql.cli:main"
+            "vt2fql=backend.cli:main"  # <== IMPORTANT
         ]
     },
     python_requires=">=3.8",
