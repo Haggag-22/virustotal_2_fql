@@ -13,7 +13,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "vt2fql=backend.cli:main"  # ✅ Correct path
+            "vt2fql=backend.cli:main"
         ]
     },
     python_requires=">=3.8",
