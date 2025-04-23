@@ -52,23 +52,29 @@ def main(setup, hash, ip, domain, url, explain):
                 if explain:
                     click.echo(click.style("🧠 Fields used in the query:", fg="magenta", bold=True))
                     query.explain()
-                break
 
 def install_dependencies():
     import subprocess
     import sys
 
-    required = ["click", "vt-py", "python-dotenv"]
+    required_packages = [
+        "click>=8.0,<9.0",
+        "vt-py>=0.7,<1.0",
+        "python-dotenv>=1.0,<2.0"
+    ]
 
-    for pkg in required:
-        print(f"Checking {pkg}...")
+    print("\nInstalling dependencies...\n")
+
+    for pkg in required_packages:
+        pkg_name = pkg.split("==")[0].split(">")[0].split("<")[0]
         try:
-            __import__(pkg.replace("-", "_"))
+            __import__(pkg_name.replace("-", "_"))
+            print(f"{pkg_name} is already installed.")
         except ImportError:
             print(f"Installing {pkg}...")
-            subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
+            subprocess.check_call([sys.executable, "-m", "pip3", "install", pkg])
 
-    print("All dependencies installed.")
+    print("\nAll dependencies are installed.\n")
 
 if __name__ == "__main__":
     main()
