@@ -52,7 +52,6 @@ def main(setup, hash, ip, domain, url, explain):
                 if explain:
                     click.echo(click.style("🧠 Fields used in the query:", fg="magenta", bold=True))
                     query.explain()
-
                 break
 
 def install_dependencies():
