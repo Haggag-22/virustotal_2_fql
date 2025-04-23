@@ -70,6 +70,9 @@ def install_dependencies():
 
     print("All dependencies installed.")
 
+if __name__ == "__main__":
+    main()
+
     
 
 
