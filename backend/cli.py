@@ -19,11 +19,17 @@ Examples:
 @click.option("--domain", help="Domain to investigate")
 @click.option("--url", help="URL to investigate")
 @click.option("--explain", is_flag=True, help="Show used fields in the FQL query")
+
+
 def main(setup, hash, ip, domain, url, explain):
-    if setup:
-        install_dependencies()
-        return
-    
+
+    if "--setup" in sys.argv:
+        import subprocess
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "click", "vt-py", "python-dotenv"])
+        print("✅ Basic dependencies installed. Now run: python -m backend.cli [options]")
+    else:
+        main()
+
     click.echo(click.style("\n🔍 Falcon Query Generator from VirusTotal\n", fg="cyan", bold=True))
 
     if not any([hash, ip, domain, url]):
