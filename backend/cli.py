@@ -2,9 +2,9 @@ import click
 import vt
 import subprocess
 import sys
-from vt2fql.config import *
-from vt2fql.vt_extractor import *
-from vt2fql.generator import *
+from backend.config import *
+from backend.vt_extractor import *
+from backend.generator import *
 
 @click.command(help="""
 vt2fql - Generate FQL detection queries from VirusTotal IOCs.
@@ -76,8 +76,7 @@ def install_dependencies():
 
     print("\nAll dependencies are installed.\n")
 
-if __name__ == "__main__":
-    main()
+
 
     
 

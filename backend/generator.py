@@ -1,5 +1,5 @@
-from vt2fql.vt_extractor import *
-from vt2fql.fql_templates import *
+from backend.vt_extractor import *
+from backend.fql_templates import *
 
 class FQLGenerator:
     def __init__(self, ioc: dict):
