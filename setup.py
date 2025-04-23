@@ -5,7 +5,7 @@ setup(
     version="1.0.0",
     description="Generate Falcon FQL queries from VirusTotal IOCs",
     author="Omar Haggag",
-    packages=find_packages(include=["backend", "backend.*"]),
+    packages=find_packages(),  
     install_requires=[
         "click>=8.0,<9.0",
         "vt-py>=0.7,<1.0",
@@ -13,7 +13,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "vt2fql=backend.cli:main"
+            "vt2fql=backend.cli:main"  
         ]
     },
     python_requires=">=3.8",
