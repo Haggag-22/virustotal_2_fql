@@ -2,9 +2,9 @@ import click
 import vt
 import subprocess
 import sys
-from backend.config import *
-from backend.vt_extractor import *
-from backend.generator import *
+from vt2fql.config import *
+from vt2fql.vt_extractor import *
+from vt2fql.generator import *
 
 @click.command(help="""
 vt2fql - Generate FQL detection queries from VirusTotal IOCs.
