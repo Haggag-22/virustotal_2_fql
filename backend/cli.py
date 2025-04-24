@@ -21,7 +21,7 @@ Examples:
 @click.option("--explain", is_flag=True, help="Show used fields in the FQL query")
 
 
-def main(setup, hash, ip, domain, url, explain):
+def main(hash, ip, domain, url, explain):
 
     click.echo(click.style("\n🔍 Falcon Query Generator from VirusTotal\n", fg="cyan", bold=True))
 
