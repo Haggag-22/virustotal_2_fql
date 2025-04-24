@@ -40,7 +40,7 @@ def main(hash, ip, domain, url, explain):
 
         for label, (value, report_func, extract_func) in ioc_inputs.items():
             if value:
-                click.echo(click.style(f"✔ Analyzing {label}: ", fg="green") + click.style(value, fg="yellow"))
+                click.echo(click.style(f"✔ Analyzing {label}: ", fg="blue") + click.style(value, fg="yellow"))
                 report = report_func(client,value)
                 iocs = extract_func(report)
                 query = FQLGenerator(iocs)
@@ -49,7 +49,7 @@ def main(hash, ip, domain, url, explain):
                 click.echo(click.style(query.generate() + "\n", fg="white", bold=True))
 
                 if explain:
-                    click.echo(click.style("Fields used in the query:", fg="magenta", bold=True))
+                    click.echo(click.style("Fields used in the query:", fg="blue", bold=True))
                     query.explain()
 
 
