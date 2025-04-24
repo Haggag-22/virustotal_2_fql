@@ -13,7 +13,7 @@ Examples:
   python vt2fql.py --hash <sha256>
   python vt2fql.py --ip <ip_address>
 """)
-@click.option("--setup", is_flag=True, help="Install required dependencies and exit.")
+
 @click.option("--hash", help="File Hash (SHA256, SHA1, or MD5)")
 @click.option("--ip", help="IP Address to investigate")
 @click.option("--domain", help="Domain to investigate")
