@@ -45,11 +45,11 @@ def main(hash, ip, domain, url, explain):
                 iocs = extract_func(report)
                 query = FQLGenerator(iocs)
 
-                click.echo(click.style("\n🎯 Generated FQL Query:\n", fg="blue", bold=True))
+                click.echo(click.style("\n Generated FQL Query:\n", fg="blue", bold=True))
                 click.echo(click.style(query.generate() + "\n", fg="white", bold=True))
 
                 if explain:
-                    click.echo(click.style("🧠 Fields used in the query:", fg="magenta", bold=True))
+                    click.echo(click.style("Fields used in the query:", fg="magenta", bold=True))
                     query.explain()
 
 
