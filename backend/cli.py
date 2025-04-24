@@ -23,7 +23,7 @@ Examples:
 
 def main(hash, ip, domain, url, explain):
 
-    click.echo(click.style("\n🔍 Falcon Query Generator from VirusTotal\n", fg="cyan", bold=True))
+    click.echo(click.style("\n🔍 Falcon Query Generator from VirusTotal\n", fg="yellow", bold=True))
 
     if not any([hash, ip, domain, url]):
         click.echo(click.style("❌ Please provide one of: --hash, --ip, --domain, or --url\n", fg="red", bold=True), err=True)
