@@ -40,7 +40,7 @@ def main(hash, ip, domain, url, explain):
 
         for label, (value, report_func, extract_func) in ioc_inputs.items():
             if value:
-                click.echo(click.style(f"Analyzing {label}: ", fg="blue", bold=True) + click.style(value, fg="yellow"))
+                click.echo(click.style(f"Analyzing {label}: ", fg="blue", bold=True) + click.style(value, fg="yellow", bold=True))
                 report = report_func(client,value)
                 iocs = extract_func(report)
                 query = FQLGenerator(iocs)
