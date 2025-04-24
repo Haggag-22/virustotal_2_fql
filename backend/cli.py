@@ -23,13 +23,6 @@ Examples:
 
 def main(setup, hash, ip, domain, url, explain):
 
-    if "--setup" in sys.argv:
-        import subprocess
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "click", "vt-py", "python-dotenv"])
-        print("✅ Basic dependencies installed. Now run: python -m backend.cli [options]")
-    else:
-        main()
-
     click.echo(click.style("\n🔍 Falcon Query Generator from VirusTotal\n", fg="cyan", bold=True))
 
     if not any([hash, ip, domain, url]):
@@ -59,31 +52,6 @@ def main(setup, hash, ip, domain, url, explain):
                     click.echo(click.style("🧠 Fields used in the query:", fg="magenta", bold=True))
                     query.explain()
 
-def install_dependencies():
-    import subprocess
-    import sys
 
-    required_packages = [
-        "click>=8.0,<9.0",
-        "vt-py>=0.7,<1.0",
-        "python-dotenv>=1.0,<2.0"
-    ]
-
-    print("\nInstalling dependencies...\n")
-
-    for pkg in required_packages:
-        pkg_name = pkg.split("==")[0].split(">")[0].split("<")[0]
-        try:
-            __import__(pkg_name.replace("-", "_"))
-            print(f"{pkg_name} is already installed.")
-        except ImportError:
-            print(f"Installing {pkg}...")
-            subprocess.check_call([sys.executable, "-m", "pip3", "install", pkg])
-
-    print("\nAll dependencies are installed.\n")
-
-
-
-    
 
 
