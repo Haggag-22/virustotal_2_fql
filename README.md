@@ -20,23 +20,20 @@ git clone https://github.com/Haggag-22/virustotal_2_fql.git
 # 2. Navigate into the project directory
 cd virustotal_2_fql
 
-# 3. Run the setup command to install dependencies
-python vt2fql.py --setup
+# 3. Run the requirements.txt
+pip3 install -r requirements.txt
 
-# 4. Open the .env file in the root folder and paste your VirusTotal API key
-#
-#    VT_API_KEY=your_virustotal_api_key_here
-#
-#    (You can get a free API key at https://www.virustotal.com)
+# 4. Open the .env file in the root folder and paste your VirusTotal API key. You can get a free API key at https://www.virustotal.com
+nano .env
+VT_API_KEY="your_virustotal_api_key_here"
 
 # 5. Run the tool with one of the following options:
-python vt2fql.py --hash <sha256>
-python vt2fql.py --ip <ip_address>
-python vt2fql.py --domain <domain_name>
-python vt2fql.py --url <url>
+python3 vt2fql.py --hash <sha256>
+python3 vt2fql.py --ip <ip_address>
+python3 vt2fql.py --domain <domain_name>
 
 # 6. (Optional) Use --explain to see what fields were used
-python vt2fql.py --hash <sha256> --explain
+python3 vt2fql.py --hash <sha256> --explain
 
 # 7. (Optional) Use --help to see all available options
-python vt2fql.py --help
+python3 vt2fql.py --help
